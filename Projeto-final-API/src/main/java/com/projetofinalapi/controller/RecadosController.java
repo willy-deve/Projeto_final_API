@@ -25,7 +25,6 @@ public class RecadosController {
     }
 
 
-
     @GetMapping("/{id}")
     public ResponseEntity<Recados> findById(@PathVariable("id") Integer id){
         Recados recados = service.findById(id);
@@ -34,18 +33,18 @@ public class RecadosController {
     }
 
     @PostMapping
-    public String save(@RequestBody Recados recados){
-        service.save(recados);
-        return "Recado salvo com sucesso";
+    public ResponseEntity<Recados> save(@RequestBody Recados recados) {
+        Recados r = service.save(recados);
+        return ResponseEntity.ok().body(r);
     }
+
 
     @PutMapping("/{id}")
-    public String uptdade(@PathVariable("id") Integer id, @RequestBody Recados recados){
-        service.update(id, recados);
-        return "Atualizado com sucesso";
+    public ResponseEntity<Recados> uptdade(@PathVariable("id") Integer id, @RequestBody Recados recados){
+       Recados r = service.update(id, recados);
+        return ResponseEntity.ok().body(r);
 
     }
-
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Integer id){

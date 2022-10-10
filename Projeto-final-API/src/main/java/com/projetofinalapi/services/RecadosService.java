@@ -17,7 +17,7 @@ public class RecadosService {
     private Integer id = 0;
 
 
-    public void save(Recados recados){
+    public Recados save(Recados recados){
         Recados recado = new Recados();
         recado.setId(++id);
         recado.setDetail(recados.getDetail());
@@ -25,6 +25,7 @@ public class RecadosService {
 
         banco_dados.add(recado);
 
+        return recado;
     }
 
 
@@ -74,7 +75,7 @@ public class RecadosService {
     }
 
 
-    public void update(Integer id, Recados recados){
+    public Recados update(Integer id, Recados recados){
 
         for (Recados r : banco_dados){
             if (r.getId().equals(id)){
@@ -84,6 +85,7 @@ public class RecadosService {
             }
 
         }
+        return recados;
     }
 }
 
