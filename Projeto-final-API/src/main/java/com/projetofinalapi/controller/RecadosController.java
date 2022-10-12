@@ -2,6 +2,7 @@ package com.projetofinalapi.controller;
 
 import com.projetofinalapi.entities.Recados;
 import com.projetofinalapi.services.RecadosService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/recados")
+@Api(value = "API REST")
 @CrossOrigin("*")
 public class RecadosController {
 
