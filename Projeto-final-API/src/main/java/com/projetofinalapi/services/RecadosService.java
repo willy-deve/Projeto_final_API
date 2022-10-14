@@ -19,7 +19,8 @@ public class RecadosService {
 
     public Recados save(Recados recados){
         Recados recado = new Recados();
-        recado.setId(++id);
+        ++id;
+        recado.setId(id);
         recado.setDetail(recados.getDetail());
         recado.setDescription(recados.getDescription());
 
@@ -60,33 +61,29 @@ public class RecadosService {
 
     public void delete(Integer id){
 
-//        banco_dados.removeIf(recadoApagdo -> recadoApagdo.getId().equals(id));
+        banco_dados.removeIf(recadoApagdo -> recadoApagdo.getId().equals(id));
 
-        List<Recados> recado = new ArrayList<>();
-
-        for (Recados r : banco_dados){
-            if (r.getId().equals(id)){
-                recado.add(r);
-            }
-        }
-
-        banco_dados.removeAll(recado);
 
     }
 
 
     public Recados update(Integer id, Recados recados){
 
+        Recados recado = null;
+        
         for (Recados r : banco_dados){
             if (r.getId().equals(id)){
-                r.setId(recados.getId());
+                r.setId(id);
                 r.setDescription(recados.getDescription());
                 r.setDetail(recados.getDetail());
+                
+               recado = new Recados(r.getId(), r.getDescription(), r.getDetail());
+               
 
             }
 
         }
-        return recados;
+        return recado;
     }
 }
 
