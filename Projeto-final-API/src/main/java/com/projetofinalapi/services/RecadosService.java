@@ -79,6 +79,7 @@ public class RecadosService {
 
         for (Recados r : banco_dados){
             if (r.getId().equals(id)){
+                r.setId(recados.getId());
                 r.setDescription(recados.getDescription());
                 r.setDetail(recados.getDetail());
 
